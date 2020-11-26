@@ -1,6 +1,11 @@
 require 'json'
 require 'open-uri'
 
+#CLEAN THE SEED!
+puts "Start of the seed"
+puts "Cleaning the DB"
+
+Cocktail.destroy_all
 Ingredient.destroy_all
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
