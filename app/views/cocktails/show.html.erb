@@ -4,5 +4,6 @@
 <% @cocktail.doses.each do |dose| %>
  <p>Dose description: <%= dose.description %>  </p>
  <p>Ingredient: <%= dose.ingredient.name  %> </p>
+ <!-- need to state it is a delete method -->
  <%= link_to "Delete Poison" , dose_path(dose), method: "delete" %>
  <% end %>
