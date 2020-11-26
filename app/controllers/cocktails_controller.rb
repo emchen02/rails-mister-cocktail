@@ -16,9 +16,9 @@ class CocktailsController < ApplicationController
     # take the input from new.html form to create new instance
     @cocktail = Cocktail.new(params_cocktails)
     if @cocktail.save
-       redirect_to cocktail_path(@cocktail)
+      redirect_to cocktail_path(@cocktail)
     else
-      # sends you to the action #new again
+      # reroute you to the #new html again
       render :new
     end
   end
@@ -28,5 +28,4 @@ class CocktailsController < ApplicationController
   def params_cocktails
     params.require(:cocktail).permit(:name)
   end
-
 end
