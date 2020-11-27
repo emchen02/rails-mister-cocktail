@@ -2,7 +2,6 @@
 
 <%= simple_form_for([@cocktail, @dose]) do |f| %>
   <%= f.input :description %>
-  <%= f.association :cocktail %>
   <%= f.association :ingredient %>
   <button type="button" class="btn btn-success"><%= f.button :submit %></button>
 <% end %>

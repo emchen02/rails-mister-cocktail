@@ -1,7 +1,12 @@
 <h1>Cocktails Galore</h1>
+<div class="container">
 <% @cocktails.each do |cocktail| %>
-<%= cl_image_tag @cocktail.photo.key, width: 400, height: 300, crop: :fill %>
-  <p>Name: <%= cocktail.name %></p>
+  <%= link_to cocktail_path(cocktail) do %>
+  <%= cl_image_tag cocktail.photo.key, width: 200, height: 200, crop: :fill %>
+  <!-- link_to String, cocktail.name is a string-->
+  <% end %>
 <!--   <p>Ingredients required<%#= cocktail.ingredients.name %></p>
   <p>Doses<%#= cocktail.doses.description %></p> -->
+ <p>Cocktail: <%= cocktail.name %></p>
 <% end %>
+</div>

@@ -7,7 +7,7 @@
   <span> <%= dose.ingredient.name %> - Type: <%= dose.description %> (
   <%= link_to "Delete Poison" , dose_path(dose), method: "delete" %>)</span>
 </div>
- <button type="button" class="btn btn-primary btn-sm">
-  <%= link_to "Add Poison" , new_cocktail_dose_path(dose) %>
 </button>
 <% end %>
+<button type="button" class="btn btn-primary btn-sm">
+  <%= link_to "Add Poison dosages" , new_cocktail_dose_path(@cocktail) %>
