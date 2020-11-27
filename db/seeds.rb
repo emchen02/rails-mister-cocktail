@@ -24,3 +24,22 @@ types[0, 10].each do |type|
   ingredient.save
   puts 'ingredient is created'
 end
+
+# create cocktails seed and pictures
+cocktail_url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
+list_serialized = open(cocktail_url).read
+# result is a hash of array of hashes
+list = JSON.parse(list_serialized)
+# drinks array of drinks hashes
+drinks = list['drinks']
+# take 10 first sample
+drinks[0..10].each do |drink|
+  cocktail = Cocktail.new(
+    name: drink['strDrink']
+  )
+file = URI.open(drink['strDrinkThumb'])
+cocktail.photo.attach(io: file, filename: "#{cocktail.name}jpg", content_type: 'image/jpg')
+
+  cocktail.save
+  puts 'cocktail is created'
+end
